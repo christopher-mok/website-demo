@@ -18,11 +18,17 @@
   "homepage": "https://github.com/christopher-mok/website-demo#readme",
   "dependencies": {
     "body-parser": "^2.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
+    "lucide-react": "^0.544.0",
     "npx": "^10.2.2",
     "pnpm": "^10.16.1",
-    "pnpx": "^0.0.1"
+    "pnpx": "^0.0.1",
+    "react": "^19.1.1",
+    "tailwind-merge": "^3.3.1",
+    "tw-animate-css": "^1.3.8"
   }
 }
