@@ -1,6 +1,9 @@
 import React from "react";
 import { PRODUCTS } from "../products";
 import { Product } from "../components/Product";
+import "../components/Product.css";
+import "../components/Nav.css";
+import "../components/CartContext.css";
 
 export default function Home() {
   return (
@@ -16,7 +19,7 @@ export default function Home() {
           <Product key={product.id} data={product} />
         ))}
       </div>
-      <button className="addToCartButton"> Add To Cart</button>
+      <button className="addToCartButton"></button>
     </div>
   );
 }

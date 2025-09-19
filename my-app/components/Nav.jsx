@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ShoppingCart } from 'lucide-react';
+import { useCart } from "@/components/CartContext";
 //import "./Nav.css";
 
 const links = [
@@ -14,14 +15,6 @@ const links = [
     {
         name: 'cart',
         path: "/cart"
-    },
-    {
-        name: 'checkout',
-        path: "/checkout"
-    },
-    {
-        name: 'contact',
-        path: "/contact"
     },
 ];
 
@@ -36,20 +29,57 @@ const links = [
 //     );
 // };
 
+// const Nav = () => {
+//   const pathname = usePathname();
+
+//   return (
+//     <nav className="flex gap-8">
+//       {links.map((link, index) => {
+//         const isActive = link.path === pathname;
+//         return (
+//           <Link key={index} href={link.path}
+//             className={`${isActive ? "text-accent border-b-2 border-accent" : ""} 
+//               capitalize font-medium hover:text-accent transition-all flex items-center gap-1`}
+//           >
+//             {link.name === "cart" ? (
+//               <ShoppingCart size={24} />
+//             ) : (
+//               link.name
+//             )}
+//           </Link>
+//         );
+//       })}
+//     </nav>
+//   );
+// };
+
 const Nav = () => {
   const pathname = usePathname();
+  const { cartItems } = useCart();
+
+  const cartCount = Object.values(cartItems).reduce((sum, n) => sum + n, 0);
 
   return (
     <nav className="flex gap-8">
       {links.map((link, index) => {
         const isActive = link.path === pathname;
+
         return (
-          <Link key={index} href={link.path}
+          <Link
+            key={index}
+            href={link.path}
             className={`${isActive ? "text-accent border-b-2 border-accent" : ""} 
               capitalize font-medium hover:text-accent transition-all flex items-center gap-1`}
           >
             {link.name === "cart" ? (
-              <ShoppingCart size={24} />
+              <div className="relative flex items-center">
+                <ShoppingCart size={24} />
+                {cartCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full px-1.5">
+                    {cartCount}
+                  </span>
+                )}
+              </div>
             ) : (
               link.name
             )}
@@ -60,4 +90,4 @@ const Nav = () => {
   );
 };
 
-export default Nav
+export default Nav;

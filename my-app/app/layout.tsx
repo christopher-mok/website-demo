@@ -4,7 +4,6 @@ import "./globals.css";
 
 //Components
 import Header from "@/components/Header";
-import { Product } from "@/components/Product";
 import { CartProvider } from "@/components/CartContext";
 
 const geistSans = Geist({
@@ -31,8 +30,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      > <Header />
-        <CartProvider>{children}</CartProvider>
+      >
+        <CartProvider>
+          <Header />
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

@@ -1,0 +1,13 @@
+.addToCartBttn {
+  border: 2px solid black;
+  background: transparent;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.addToCartBttn:hover {
+  background: black;
+  color: white;
+}
