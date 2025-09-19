@@ -10,7 +10,7 @@ export default function Home() {
     <div className="main-page">
       <section className="py-24">
         <div className="container">
-          <h1 className="text-3xl font-bold">Website</h1>
+          <h1 className="text-3xl font-bold">Great Shopping Website</h1>
         </div>
       </section>
 
